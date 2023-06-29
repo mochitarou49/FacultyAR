@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     return textMesh;
   };
 
-  const loadDisney = async () => {
+  const loadMain = async () => {
 
-    const videoSet = await makeVideoPlane('assets/videos/Disney.mp4');
+    const videoSet = await makeVideoPlane('assets/videos/Faculty_Main.mp4');
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(videoSet.plane);
     anchor.onTargetFound = () => {
@@ -55,13 +55,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     anchor.onTargetLost = () => {
       videoSet.video.pause();
     }
-    const textMesh = makeTextMesh('Disney');
-    anchor.group.add(textMesh);
+    // const textMesh = makeTextMesh('Disney');
+    // anchor.group.add(textMesh);
 
   }
 
-  const loadSnow = async () => {
-    const videoSet = await makeVideoPlane('assets/videos/snow.mp4');
+  const loadKoku = async () => {
+
+    const videoSet = await makeVideoPlane('assets/videos/koku.mp4');
     const anchor = mindarThree.addAnchor(1);
     anchor.group.add(videoSet.plane);
     anchor.onTargetFound = () => {
@@ -70,8 +71,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     anchor.onTargetLost = () => {
       videoSet.video.pause();
     }
-    const textMesh = makeTextMesh('Disney');
-    anchor.group.add(textMesh);
+    // const textMesh = makeTextMesh('Disney');
+    // anchor.group.add(textMesh);
+
+  }
+
+  const loadJou = async () => {
+    const videoSet = await makeVideoPlane('assets/videos/jou.mp4');
+    const anchor = mindarThree.addAnchor(2);
+    anchor.group.add(videoSet.plane);
+    anchor.onTargetFound = () => {
+      videoSet.video.play();
+    }
+    anchor.onTargetLost = () => {
+      videoSet.video.pause();
+    }
+    // const textMesh = makeTextMesh('Disney');
+    // anchor.group.add(textMesh);
   };
 
   const Start = async () => {
@@ -90,8 +106,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const startButton = document.getElementById('start-button');
   startButton.addEventListener('click', Start);
-  const startSnowButton = document.getElementById('start-snow-button');
-  startSnowButton.addEventListener('click', loadSnow);
-  const startDesneyButton = document.getElementById('start-disney-button');
-  startDesneyButton.addEventListener('click', loadDisney);
+  const startJouButton = document.getElementById('start-jou-button');
+  startJouButton.addEventListener('click', loadJou);
+  const startMainButton = document.getElementById('start-main-button');
+  startMainButton.addEventListener('click', loadMain);
+  const startKokuButton = document.getElementById('start-koku-button');
+  startKokuButton.addEventListener('click', loadKoku);
 });
